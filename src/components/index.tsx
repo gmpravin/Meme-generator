@@ -3,7 +3,6 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link,
 } from "react-router-dom";
 import "../App.css";
 import { Content } from "./content";
@@ -12,7 +11,6 @@ import { Header } from "./Header";
 import { Sidebar } from "./SideBar";
 import { GenearteMeme } from "./generateMeme";
 
-import history from "history";
 
 interface FilterDataType {
     search: string;

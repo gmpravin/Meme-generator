@@ -12,7 +12,7 @@ export const Header: FC<{ Name: string }> = ({ Name }): JSX.Element => {
     <div className="header">
       <header>
         <Link to="/">
-          <strong style={{ textAlign: "center", color: "white" }} >😎 {Name} 😍</strong>
+          <strong style={{ textAlign: "center", color: "white" }} ><span aria-label="Cool" role="img">😎</span> {Name} <span aria-label="cute" role="img">😍</span></strong>
         </Link>
         <button style={{ textAlign: "right", background: "lightblue", color: "black" }} onClick={() => setClick(!click)}>Notice</button>
         {click && <div style={styles.root} className="fixed">

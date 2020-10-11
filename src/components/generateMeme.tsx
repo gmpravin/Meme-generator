@@ -59,7 +59,7 @@ export const GenearteMeme: React.FC = () => {
         <>
             <Header Name="Meme generator" />
             <div className="text-center" id="GenImaCap" style={{ textAlign: "center" }}>
-                <img id="genImage" src={imgData} width="300px" height="300px" style={{ backgroundPosition: 'cover', border: `10px ${randomColor} solid ` }} />
+                <img id="genImage" alt="" src={imgData} width="300px" height="300px" style={{ backgroundPosition: 'cover', border: `10px ${randomColor} solid ` }} />
                 <p style={{ position: "relative", top: "-330px", width: "300px", fontSize: getChangedfontSize, color: colors, wordWrap: "break-word" }}><strong>{titleFirst}</strong></p>
                 <p style={{ position: "relative", top: "-160px", width: "300px", fontSize: getChangedfontSize, color: colors, wordWrap: "break-word" }}><strong>{titleSecond}</strong></p>
             </div>

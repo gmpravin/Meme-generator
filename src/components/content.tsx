@@ -39,7 +39,7 @@ export const Content = () => {
 
 
   function isEven(value) {
-    if (value % 2 == 0)
+    if (value % 2 === 0)
       return true;
     else
       return false;
@@ -64,7 +64,7 @@ export const Content = () => {
               console.log(randomColor);
               return (
                 <Link to={`/gen/${i.id}`}>
-                  <img id="mainImg" key={intx} src={i.images.downsized.url} width="175" height="150px" style={{ backgroundPosition: 'cover', border: `10px ${colors[randomColor]} solid `, margin: isEven(intx) ? "0" : "25px 15px 25px 10px" }} />
+                  <img id="mainImg" alt="" key={intx} src={i.images.downsized.url} width="175" height="150px" style={{ backgroundPosition: 'cover', border: `10px ${colors[randomColor]} solid `, margin: isEven(intx) ? "0" : "25px 15px 25px 10px" }} />
                 </Link>
               );
             }
