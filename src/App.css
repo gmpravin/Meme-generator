@@ -1,38 +1,120 @@
-.App {
-  text-align: center;
+body{
+  background: #121212;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  color: white;
+  background:#121212;
+  height: 75px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+  color:white;
+  border: none;
+  outline: none;
+  padding: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
+label {
+  padding: 0 10px 10px 0;
+}
+
+.Sidebar {
+  color: white;
+  width: 100%;
+  display: flex;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 0%,
+    rgba(3, 140, 208, 1) 0%,
+    rgba(6, 68, 160, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.content{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   min-height: 100vh;
+}
+
+.text-center{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.fixed{
+  position: fixed !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+.absoluate{
+  position: absolute !important;
+}
+
+
+input,option,select{
+  padding: 5px;
+  color:white;
+  background: #121212;
+}
+
+.navItems{
+  padding-right:10px ;
+}
+
+.loader {
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+  border: 3px solid #ddd;
+  border-top: 3px solid #42a5f5;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+}
+
+
+@-webkit-keyframes spin {
   to {
-    transform: rotate(360deg);
+    border-top-color: #ec407a;
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    border-top-color: #ec407a;
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+
+@media only screen and (max-width: 400px) {
+  #genImage {
+    width: 225px;
+    height: auto;
+  }
+
+  #mainImg {
+    margin: 10px !important;
   }
 }
