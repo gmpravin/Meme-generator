@@ -69,6 +69,9 @@ label {
   position: absolute !important;
 }
 
+#genImage{
+  width: 300px; height: 300px;display: flex; flex-direction: column; justify-content: space-between;
+}
 
 input,option,select{
   padding: 5px;
@@ -88,6 +91,12 @@ input,option,select{
   border-radius: 50%;
   height: 60px;
   width: 60px;
+}
+
+#t1,#t2{
+width:300px;
+word-break: break-all;
+text-align: center;
 }
 
 
@@ -110,10 +119,13 @@ input,option,select{
 
 @media only screen and (max-width: 400px) {
   #genImage {
-    width: 225px;
-    height: auto;
+    width: 225px !important;
+    height: 350px !important;
+    background-position: center;
   }
-
+  #t1,#t2{
+    width: 225px !important;
+  }
   #mainImg {
     margin: 10px !important;
   }

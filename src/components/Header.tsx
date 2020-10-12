@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 /** @type {{root: React.CSSProperties}} */
 const styles = {
   root: {
-    height: '100vh', width: '100%', top: "25px", background: "#212121",fontSize:"12px",padding:"8px",overflow:"scroll",
+    height: '100vh', width: '100%', top: "0", background: "#212121",fontSize:"12px",padding:"8px",overflow:"scroll",
   }
 }
 export const Header: FC<{ Name: string }> = ({ Name }): JSX.Element => {
@@ -16,7 +16,7 @@ export const Header: FC<{ Name: string }> = ({ Name }): JSX.Element => {
         </Link>
         <button style={{ textAlign: "right", background: "lightblue", color: "black" }} onClick={() => setClick(!click)}>Notice</button>
         {click && <div style={styles.root} className="fixed">
-          <div style={{ textAlign: "right", padding: "10px 0 0 10px" }} onClick={() => setClick(!click)}>X</div>
+          <div style={{ textAlign: "right", padding: "10px 20px 20px 10px" }} onClick={() => setClick(!click)}>X</div>
           <div style={styles.root}>
 
             <h3>GIPHY User Terms of Service</h3>

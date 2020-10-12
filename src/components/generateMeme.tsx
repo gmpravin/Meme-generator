@@ -17,10 +17,12 @@ export const GenearteMeme: React.FC = () => {
     const [titleFirst, setTitleFirst] = useState('');
     const [titleSecond, setTitleSecond] = useState('');
     const [randomColor, setRandColor] = useState('#212121');
+    const [width, setwidth] = useState('');
+    const [height, setheight] = useState('');
 
     let { id } = useParams();
     useEffect(() => {
-        fetch(`https://api.giphy.com/v1/gifs/${id}?api_key=1a2hhrZGwUNa6v04OSbxT39KWOHj5Jo8`).then(res => res.json()).then(({ data }) => {
+        fetch(`https://api.giphy.com/v1/gifs/${id}?api_key=${process.env.REACT_APP_API_KEY}`).then(res => res.json()).then(({ data }) => {
             const { images, title } = data;
             setImageData(images.downsized_still.url);
             setGifData(images.original.url);
@@ -35,7 +37,7 @@ export const GenearteMeme: React.FC = () => {
         }, 1500);
     }, [])
     const generateMeme = () => {
-        var node = document.getElementById("GenImaCap");
+        var node = document.getElementById("genImage");
 
         domtoimage.toBlob(node).then(function (dataUrl) {
             FileSaver.saveAs(dataUrl);
@@ -54,14 +56,15 @@ export const GenearteMeme: React.FC = () => {
 
 
     const getChangedfontSize = parseInt(fontSizes);
-    console.log(colors);
+    console.log(window.innerWidth);
     return (
         <>
             <Header Name="Meme generator" />
-            <div className="text-center" id="GenImaCap" style={{ textAlign: "center" }}>
-                <img id="genImage" alt="" src={imgData} width="300px" height="300px" style={{ backgroundPosition: 'cover', border: `10px ${randomColor} solid ` }} />
-                <p style={{ position: "relative", top: "-330px", width: "300px", fontSize: getChangedfontSize, color: colors, wordWrap: "break-word" }}><strong>{titleFirst}</strong></p>
-                <p style={{ position: "relative", top: "-160px", width: "300px", fontSize: getChangedfontSize, color: colors, wordWrap: "break-word" }}><strong>{titleSecond}</strong></p>
+            <div className="text-center">
+                <div className="wrapper text-center" id="genImage" style={{ width: `${width ? width + `px` : "300px"}`, height: `${height ? height + `px` : "300px"}`, backgroundImage: `url(${imgData})`, backgroundPosition: 'center', border: `10px ${randomColor} solid ` }}>
+                    <p id="t1" style={{ fontSize: getChangedfontSize, color: colors }}><strong>{titleFirst}</strong></p>
+                    <p id="t2" style={{ fontSize: getChangedfontSize, color: colors }}><strong>{titleSecond}</strong></p>
+                </div>
             </div>
             <p style={{ color: "white" }} className="text-center">{title}</p>
             <div className="Sidebar" style={{ background: "none", paddingBottom: "20px" }}>
@@ -86,6 +89,27 @@ export const GenearteMeme: React.FC = () => {
                     marginRight: "5px",
                     background: `${getColors[Math.floor(Math.random() * getColors.length)]}`
                 }} onClick={() => generateVideoLink(videoData)}><strong>Original Quality Video</strong></button>
+                {
+                    window.innerWidth >= 400 &&
+                    <>
+                        <div className="navItems">
+                            <label>Width</label>
+                            <input type="text" onChange={(e) => setwidth(e.target.value)} value={width} placeholder="Enter the Width" style={{
+                                border: `5px solid ${getColors[Math.floor(Math.random() * getColors.length)]}`,
+                                borderRadius: 4,
+                                padding: "10px",
+                            }} />
+                        </div>
+                        <div className="navItems">
+                            <label>Height</label>
+                            <input type="text" onChange={(e) => setheight(e.target.value)} value={height} placeholder="Enter the Height" style={{
+                                border: `5px solid ${getColors[Math.floor(Math.random() * getColors.length)]}`,
+                                borderRadius: 4,
+                                padding: "10px",
+                            }} />
+                        </div></>
+                }
+
             </div>
 
             <div className="Sidebar" style={{ background: "none" }}>
@@ -114,8 +138,8 @@ export const GenearteMeme: React.FC = () => {
                         padding: "10px",
                     }}>
                         {
-                            sizeForFonts.map(val => (
-                                <option value={val}>{val}</option>
+                            sizeForFonts.map((size, i) => (
+                                <option value={size} key={i}>{size}</option>
                             ))
                         }
                     </select>
@@ -128,8 +152,8 @@ export const GenearteMeme: React.FC = () => {
                         padding: "10px",
                     }}>
                         {
-                            getColors.map(val => (
-                                <option value={val} style={{ background: val, width: "100px" }}></option>
+                            getColors.map((color, i) => (
+                                <option value={color} key={i} style={{ background: color, width: "100px" }}></option>
                             ))
                         }
                     </select>
