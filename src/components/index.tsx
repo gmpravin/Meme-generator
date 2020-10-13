@@ -10,7 +10,7 @@ import { FilterContext } from "./globalState";
 import { Header } from "./Header";
 import { Sidebar } from "./SideBar";
 import { GenearteMeme } from "./generateMeme";
-
+import { OwnGenearteMeme } from "./ownMemeGen";
 
 interface FilterDataType {
     search: string;
@@ -51,6 +51,9 @@ class Index extends Component<{}, {}> {
                         </Route>
                         <Route exact path="/gen/:id">
                             <GenearteMeme />
+                        </Route>
+                        <Route exact path="/genmeme">
+                            <OwnGenearteMeme />
                         </Route>
 
                     </Switch>

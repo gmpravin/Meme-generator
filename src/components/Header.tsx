@@ -11,10 +11,16 @@ export const Header: FC<{ Name: string }> = ({ Name }): JSX.Element => {
   return (
     <div className="header">
       <header>
-        <Link to="/">
-          <strong style={{ textAlign: "center", color: "white" }} ><span aria-label="Cool" role="img">😎</span> {Name} <span aria-label="cute" role="img">😍</span></strong>
+        <Link to="/" style={{flex:1, textAlign: "center"}}>
+          <strong style={{ color: "white" }} ><span aria-label="Cool" role="img">😎</span> {Name} <span aria-label="cute" role="img">😍</span></strong>
         </Link>
-        <button style={{ textAlign: "right", background: "lightblue", color: "black" }} onClick={() => setClick(!click)}>Notice</button>
+        <div className="flex">
+        <Link to="/genmeme">
+          <button style={{ background: "lightblue", color: "black" }}>Upload</button>
+        </Link>
+        <button style={{ background: "transparent", color: "white" }} onClick={() => setClick(!click)}>Notice</button>
+        </div>
+        
         {click && <div style={styles.root} className="fixed">
           <div style={{ textAlign: "right", padding: "10px 20px 20px 10px" }} onClick={() => setClick(!click)}>X</div>
           <div style={styles.root}>

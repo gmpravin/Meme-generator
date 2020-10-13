@@ -93,6 +93,15 @@ input,option,select{
   width: 60px;
 }
 
+.wrapper-gen{
+  background-repeat: no-repeat;
+background-position: center center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
 #t1,#t2{
 width:300px;
 word-break: break-all;

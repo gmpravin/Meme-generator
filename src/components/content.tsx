@@ -36,22 +36,11 @@ export const Content = () => {
     }
   }
 
-
-
-  function isEven(value) {
-    if (value % 2 === 0)
-      return true;
-    else
-      return false;
-  }
-
-
   return (
     <div style={{ marginBottom: "-50px" }}>
       {loading && <Loader />}
       {datas && <div className="text-center" style={{ flexDirection: "row" }}>
         {paginate !== 0 && <button onClick={fetchPreviousPage} style={{ background: colors[Math.floor(Math.random() * colors.length)] }}>Previous Page</button>}
-
         <button onClick={fetchNextPage} style={{ background: colors[Math.floor(Math.random() * colors.length)] }}>Next Page</button>
       </div>}
       {
@@ -64,7 +53,7 @@ export const Content = () => {
               console.log(randomColor);
               return (
                 <Link to={`/gen/${i.id}`}>
-                  <img id="mainImg" alt="" key={intx} src={i.images.downsized.url} width="175" height="150px" style={{ backgroundPosition: 'cover', border: `10px ${colors[randomColor]} solid `, margin: isEven(intx) ? "0" : "25px 15px 25px 10px" }} />
+                  <img id="mainImg" alt="" key={intx} src={i.images.downsized.url} width="175" height="150px" style={{ backgroundPosition: 'cover', border: `10px ${colors[randomColor]} solid `, margin: intx % 2 === 0 ? "0" : "25px 15px 25px 10px" }} />
                 </Link>
               );
             }
