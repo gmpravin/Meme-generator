@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 😎 Meme generator 😍 React.js + Typescript = ❤️
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/02d30152-3409-4de5-aeb0-6db65a4172c6/deploy-status)](https://app.netlify.com/sites/memes-makers/deploys) 
+
+https://memes-makers.netlify.app/
 
 ## Available Scripts
 
